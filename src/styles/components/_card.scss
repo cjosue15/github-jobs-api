@@ -1,0 +1,48 @@
+.card__content {
+    background-color: $white;
+    border-radius: 5px;
+    position: relative;
+    padding: 3em 2em 2em 2em;
+    margin-bottom: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 230px;
+
+    &-image {
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        top: -30px;
+        left: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $white;
+        border-radius: 10px;
+        overflow: hidden;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &-time,
+    &-company {
+        color: $gray--dark;
+    }
+
+    &-title {
+        color: $blue--dark;
+        font-weight: 700;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+
+    &-location {
+        color: $violet;
+        font-weight: 700;
+        display: inline-block;
+        margin-top: 15px;
+    }
+}
