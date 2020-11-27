@@ -3,5 +3,70 @@
     height: 160px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
+    display: flex;
+    align-items: center;
+
+    &__content {
+        position: relative;
+    }
+
+    .header__logo {
+        display: flex;
+        justify-content: space-between;
+
+        a {
+            margin: 0;
+
+            img {
+                user-select: none;
+                vertical-align: middle;
+            }
+        }
+
+        .header__theme {
+            display: flex;
+            align-items: center;
+
+            span {
+                display: block;
+
+                img {
+                    vertical-align: middle;
+                }
+            }
+
+            button {
+                border: none;
+                background: $white;
+                cursor: pointer;
+                margin: 0 10px;
+                width: 50px;
+                height: 20px;
+                border-radius: 30px;
+                position: relative;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            &-slider {
+                width: 15px;
+                height: 15px;
+                background: $violet;
+                border-radius: 50%;
+                position: absolute;
+                top: 3px;
+                right: calc(100% - 19px);
+                transition: all 0.2s linear;
+            }
+
+            &.active {
+                .header__theme-slider {
+                    transform: translateX(calc(100% + 11px));
+                }
+            }
+        }
+    }
 }

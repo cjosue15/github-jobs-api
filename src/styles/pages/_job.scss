@@ -3,6 +3,11 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1.5em;
-        padding: 5em 0;
+        padding: 5em 0em 2em 0em;
+    }
+
+    &__loadmore {
+        text-align: center;
+        padding-bottom: 5em;
     }
 }

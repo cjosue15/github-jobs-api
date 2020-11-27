@@ -20,6 +20,7 @@ html {
     box-sizing: border-box;
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
+    scroll-behavior: smooth;
 }
 
 *,
@@ -37,3 +38,5 @@ html {
 @import './pages/job';
 @import './components/card';
 @import './components/header';
+@import './components/buttons';
+@import './components/searchbar';
