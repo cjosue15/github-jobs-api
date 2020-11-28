@@ -31,11 +31,13 @@ html {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: calc(1400px - 2em);
     margin: 0 auto;
+    padding: 0 2em;
 }
 
 @import './pages/job';
+@import './pages/jobDetails';
 @import './components/card';
 @import './components/header';
 @import './components/buttons';

@@ -1,0 +1,188 @@
+.JobDetails {
+    margin-top: -40px;
+
+    .container {
+        max-width: 800px;
+    }
+
+    &__header {
+        background: $white;
+        margin-bottom: 2em;
+        display: flex;
+        border-radius: 10px;
+        border-top-left-radius: 0px;
+        overflow: hidden;
+
+        &-logo {
+            width: 140px;
+            height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+
+            img {
+                max-width: 100%;
+                max-height: 130px;
+                vertical-align: middle;
+            }
+        }
+
+        &-description {
+            padding: 2em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            .title-company {
+                color: $blue--dark;
+                flex: 1 1 auto;
+                margin-right: 1em;
+            }
+
+            .company-site {
+                flex-shrink: 0;
+            }
+        }
+    }
+
+    &__description {
+        background: $white;
+        padding: 2em;
+        border-radius: 10px;
+        margin-bottom: 2em;
+
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2em;
+        }
+
+        &-title {
+            flex: 1 1 auto;
+            margin-right: 1.5em;
+
+            h1 {
+                color: $blue--dark;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .time {
+                color: $gray--dark;
+            }
+
+            .location {
+                color: $violet;
+                font-weight: 700;
+                display: inline-block;
+            }
+        }
+
+        &-apply {
+            flex-shrink: 0;
+        }
+
+        &-body {
+            color: $gray--dark;
+            line-height: 1.5;
+
+            h2 {
+                color: $blue--dark;
+            }
+
+            p > strong {
+                color: $blue--dark;
+            }
+
+            a {
+                color: $violet;
+            }
+
+            strong {
+                display: inline-block;
+                margin-top: 30px;
+                margin-bottom: 20px;
+            }
+
+            ul {
+                margin: 0;
+                margin: 15px 0;
+                padding: 0;
+                list-style: none;
+
+                li {
+                    position: relative;
+                    margin: 0 50px 10px calc(50px + 1em);
+
+                    strong {
+                        margin: 0;
+                    }
+
+                    &::before {
+                        display: inline-block;
+                        position: absolute;
+                        content: '\2022';
+                        color: $gray--dark;
+                        width: 1em;
+                        margin-left: -1em;
+                    }
+                }
+            }
+        }
+    }
+
+    &__cta {
+        background-image: url('/images/desktop/bg-pattern-detail-footer.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 2em;
+        color: #fff;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        margin-bottom: 3em;
+
+        h3 {
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        &-body {
+            word-break: break-all;
+        }
+    }
+
+    .footer {
+        background-color: $white;
+        padding: 1.5em 0;
+
+        &__content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &-title {
+                flex: 1 1 auto;
+            }
+
+            &-apply {
+                flex-shrink: 0;
+            }
+
+            h4 {
+                color: $blue--dark;
+                margin-bottom: 0.25em;
+            }
+
+            small {
+                color: $gray--dark;
+            }
+        }
+    }
+}
