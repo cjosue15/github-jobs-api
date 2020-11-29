@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-// import { useHistory } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { JobsContext } from '../context/JobsContext';
 import { useForm } from '../hooks/useForm';
 
 export const SearchBar = () => {
-    // const history = useHistory();
+    const { BASE, setSearchUrl, getDataFromApi, setPage } = useContext(JobsContext);
 
     const [checked, setChecked] = useState(false);
 
@@ -16,8 +16,21 @@ export const SearchBar = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        console.log({ ...values, full_time: checked });
-        // history.push(`?description=${description}&location=${location}`);
+        setPage(2);
+        const search = description.trim() !== '' ? `description=${description}`.replace(/ /g, '+') : '';
+        const where = location.trim() !== '' ? `location=${location}`.replace(/ /g, '+') : '';
+        const full_time = checked ? `full_time=true` : '';
+        const condition = [search, where, full_time].filter(Boolean).join('&');
+        let url;
+        if (condition) {
+            url = `${BASE}?${condition}`;
+            setSearchUrl(url);
+            getDataFromApi(url);
+        } else {
+            url = `${BASE}`;
+            setSearchUrl('');
+        }
+        getDataFromApi(url);
     };
 
     return (
