@@ -30,7 +30,7 @@ export const JobScreen = () => {
     return (
         <>
             <Header />
-            <SearchBar />
+            {!loading && !error && <SearchBar />}
             <section className='job'>
                 {loading && page === 2 && <Loader />}
                 {!loading && error && <Error />}

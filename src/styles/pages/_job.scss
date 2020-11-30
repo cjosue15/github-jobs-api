@@ -10,6 +10,14 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 1.5em;
         padding: 5em 0em 2em 0em;
+
+        @include media-query(991) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include media-query(600) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__loadmore {

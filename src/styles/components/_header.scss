@@ -7,6 +7,10 @@
     display: flex;
     align-items: center;
 
+    @include media-query(767) {
+        background-image: url('/images/mobile/bg-pattern-header.svg');
+    }
+
     &__content {
         position: relative;
     }

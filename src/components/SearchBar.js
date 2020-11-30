@@ -7,6 +7,8 @@ export const SearchBar = () => {
 
     const [checked, setChecked] = useState(false);
 
+    const [modal, setModal] = useState(false);
+
     const [values, handleInputChange] = useForm({
         description: '',
         location: '',
@@ -31,6 +33,7 @@ export const SearchBar = () => {
             setSearchUrl('');
         }
         getDataFromApi(url);
+        setModal(false);
     };
 
     return (
@@ -46,32 +49,53 @@ export const SearchBar = () => {
                             onChange={handleInputChange}
                             autoComplete='off'
                         />
-                    </div>
-                    <div className='searchbar__filter-location'>
-                        <input
-                            type='text'
-                            name='location'
-                            value={location}
-                            placeholder='Filter by location'
-                            onChange={handleInputChange}
-                            autoComplete='off'
-                        />
-                    </div>
-                    <div className='searchbar__filter-time'>
-                        <div className='content-full-time' onClick={() => setChecked(!checked)}>
-                            <span className={`${checked ? 'checked' : ''}`}>
-                                <img
-                                    style={{ display: `${checked ? 'block' : 'none'}` }}
-                                    src={`${process.env.PUBLIC_URL}/images/desktop/icon-check.svg`}
-                                    alt='Check'
-                                />
-                            </span>
-                            <small>Full Time Only</small>
-                        </div>
-
-                        <button className='btn btn-primary' onClick={handleSearch}>
-                            Search
+                        <button className='filter-mobile' type='button' onClick={() => setModal(!modal)}>
+                            <img src={`${process.env.PUBLIC_URL}/images/mobile/icon-filter.svg`} alt='Filter Button' />
                         </button>
+                        <button className='filter-search-button btn btn-primary' type='button' onClick={handleSearch}>
+                            <img
+                                src={`${process.env.PUBLIC_URL}/images/desktop/icon-search-white.svg`}
+                                alt='Search Button'
+                            />
+                        </button>
+                    </div>
+                    {modal && <div className={`modal-overlay ${modal ? 'active' : ''}`}></div>}
+                    <div className={`searchbar__modal ${modal ? 'active' : ''}`}>
+                        {modal && (
+                            <div className='close-button'>
+                                <img
+                                    src={`${process.env.PUBLIC_URL}/images/mobile/icon-cancel.svg`}
+                                    alt='Close'
+                                    onClick={() => setModal(!modal)}
+                                />
+                            </div>
+                        )}
+                        <div className='searchbar__filter-location'>
+                            <input
+                                type='text'
+                                name='location'
+                                value={location}
+                                placeholder='Filter by location'
+                                onChange={handleInputChange}
+                                autoComplete='off'
+                            />
+                        </div>
+                        <div className='searchbar__filter-time'>
+                            <div className='content-full-time' onClick={() => setChecked(!checked)}>
+                                <span className={`${checked ? 'checked' : ''}`}>
+                                    <img
+                                        style={{ display: `${checked ? 'block' : 'none'}` }}
+                                        src={`${process.env.PUBLIC_URL}/images/desktop/icon-check.svg`}
+                                        alt='Check'
+                                    />
+                                </span>
+                                <small>Full Time</small>
+                            </div>
+
+                            <button className='btn btn-primary' onClick={handleSearch}>
+                                Search
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>

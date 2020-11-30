@@ -43,6 +43,9 @@ html {
     padding: 0 2em;
 }
 
+// mixins
+@import './mixin/responsive';
+
 @import './pages/job';
 @import './pages/jobDetails';
 @import './components/card';
