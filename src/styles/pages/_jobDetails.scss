@@ -6,7 +6,8 @@
     }
 
     &__header {
-        background: $white;
+        background-color: var(--main-card);
+        transition: background-color 0.2s ease-in-out;
         margin-bottom: 2em;
         display: flex;
         border-radius: 10px;
@@ -36,7 +37,8 @@
             width: 100%;
 
             .title-company {
-                color: $blue--dark;
+                color: var(--card-title);
+                transition: color 0.2s ease-in-out;
                 flex: 1 1 auto;
                 margin-right: 1em;
             }
@@ -48,7 +50,8 @@
     }
 
     &__description {
-        background: $white;
+        background-color: var(--main-card);
+        transition: background-color 0.2s ease-in-out;
         padding: 2em;
         border-radius: 10px;
         margin-bottom: 2em;
@@ -65,7 +68,8 @@
             margin-right: 1.5em;
 
             h1 {
-                color: $blue--dark;
+                color: var(--card-title);
+                transition: color 0.2s ease-in-out;
                 display: block;
                 margin: 10px 0;
             }
@@ -89,12 +93,10 @@
             color: $gray--dark;
             line-height: 1.5;
 
+            p > strong,
             h2 {
-                color: $blue--dark;
-            }
-
-            p > strong {
-                color: $blue--dark;
+                color: var(--card-title);
+                transition: color 0.2s ease-in-out;
             }
 
             a {
@@ -159,7 +161,8 @@
     }
 
     .footer {
-        background-color: $white;
+        background-color: var(--main-card);
+        transition: background-color 0.2s ease-in-out;
         padding: 1.5em 0;
 
         &__content {
@@ -176,7 +179,8 @@
             }
 
             h4 {
-                color: $blue--dark;
+                color: var(--card-title);
+                transition: color 0.2s ease-in-out;
                 margin-bottom: 0.25em;
             }
 

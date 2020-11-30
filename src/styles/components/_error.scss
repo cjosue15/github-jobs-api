@@ -1,0 +1,17 @@
+.error {
+    padding: 0 2em;
+
+    h2 {
+        color: var(--card-title);
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    figure {
+        margin: 0;
+        img {
+            max-width: 100%;
+            vertical-align: middle;
+        }
+    }
+}

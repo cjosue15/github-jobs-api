@@ -6,7 +6,7 @@ import { JobScreen } from '../pages/JobScreen';
 export const AppRouter = () => {
     return (
         <Router>
-            <div>
+            <div id='main'>
                 <Switch>
                     <Route path='/:id' component={JobDescriptionScreen} />
 

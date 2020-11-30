@@ -1,8 +1,31 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { JobsContext } from '../context/JobsContext';
 
 export const Header = () => {
-    const [active, setActive] = useState(false);
+    const { theme, setTheme } = useContext(JobsContext);
+    const body = document.body.classList;
+
+    useEffect(() => {
+        const textTheme = localStorage.getItem('theme');
+        if (textTheme === 'dark') {
+            setTheme(true);
+            body.add('dark');
+        } else {
+            setTheme(false);
+            body.remove('dark');
+        }
+    }, [theme, body, setTheme]);
+
+    const switchTheme = () => {
+        if (!theme) {
+            localStorage.setItem('theme', 'dark');
+            setTheme(true);
+        } else {
+            localStorage.setItem('theme', 'light');
+            setTheme(false);
+        }
+    };
 
     return (
         <header className='header'>
@@ -13,12 +36,7 @@ export const Header = () => {
                             <img src={`${process.env.PUBLIC_URL}/images/desktop/logo.svg`} alt='Logo' />
                         </Link>
 
-                        <div
-                            className={`header__theme ${active ? 'active' : ''}`}
-                            onClick={() => {
-                                setActive(!active);
-                            }}
-                        >
+                        <div className={`header__theme ${theme ? 'active' : ''}`} onClick={switchTheme}>
                             <span>
                                 <img src={`${process.env.PUBLIC_URL}/images/desktop/icon-sun.svg`} alt='Sun' />
                             </span>

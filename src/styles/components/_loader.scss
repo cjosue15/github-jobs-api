@@ -1,0 +1,22 @@
+.loader {
+    padding: 2em;
+    text-align: center;
+
+    img {
+        max-width: 100%;
+        vertical-align: middle;
+        animation-name: spinner;
+        animation-duration: 1500ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

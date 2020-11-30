@@ -1,5 +1,6 @@
 .card__content {
-    background-color: $white;
+    background-color: var(--main-card);
+    transition: background-color 0.2s ease-in-out;
     border-radius: 5px;
     position: relative;
     padding: 4em 2em 2em 2em;
@@ -9,6 +10,7 @@
     justify-content: space-between;
     min-height: 230px;
     text-decoration: none;
+    word-break: break-all;
 
     &-image {
         width: 70px;
@@ -19,7 +21,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: $white;
+        background-color: var(--main-card);
+        transition: background-color 0.2s ease-in-out;
         border-radius: 10px;
         overflow: hidden;
 
@@ -27,6 +30,11 @@
             max-width: 100%;
             user-select: none;
             vertical-align: middle;
+        }
+
+        small {
+            color: #fff;
+            font-weight: 700;
         }
     }
 
@@ -36,7 +44,8 @@
     }
 
     &-title {
-        color: $blue--dark;
+        color: var(--card-title);
+        transition: color 0.2s ease-in-out;
         font-weight: 700;
         margin-bottom: 15px;
         margin-top: 15px;

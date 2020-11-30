@@ -6,3 +6,15 @@ $white: #fff;
 $gray--light: #f3f5f7;
 $gray: #9eafc2;
 $gray--dark: #6d7f97;
+
+:root {
+    --main: #{$gray--light};
+    --main-card: #{$white};
+    --card-title: #{$blue--dark};
+}
+
+body.dark {
+    --main: #{$midnight};
+    --main-card: #{$blue--dark};
+    --card-title: #{$white};
+}

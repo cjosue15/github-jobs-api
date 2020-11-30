@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export const JobCard = ({ id, company, company_logo, created_at, location, title, type }) => {
+    const colors = ['#8d47ff', '#235cdf', '#daa278', '#68ab97', '#bb4643', '#e7de63'];
+    const [color] = useState(colors[Math.floor(Math.random() * colors.length)]);
+
     return (
         <Link to={`/${id}`} className='card__content'>
-            <div className='card__content-image'>
-                {company_logo ? (
+            {company_logo ? (
+                <div className='card__content-image'>
                     <img src={company_logo} alt={company} />
-                ) : (
+                </div>
+            ) : (
+                <div className='card__content-image' style={{ background: color }}>
                     <div>
                         <small>n / a</small>
                     </div>
-                )}
-            </div>
+                </div>
+            )}
+
             <div className='card__content-time'>
                 <small>{type}</small>
             </div>
