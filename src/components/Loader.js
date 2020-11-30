@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { JobsContext } from '../context/JobsContext';
 
 export const Loader = ({ cardLoader = false }) => {
-    console.log(cardLoader);
     const { theme } = useContext(JobsContext);
 
     return (
