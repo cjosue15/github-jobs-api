@@ -16,15 +16,17 @@ export const JobDescriptionScreen = () => {
     const {
         company,
         company_logo,
-        // company_url,
+        company_url,
         created_at,
         description,
         how_to_apply,
         location,
         title,
         type,
-        // url: urlCompany,
+        url: urlCompany,
     } = data;
+
+    console.log(company_url, urlCompany);
 
     const getJob = async (id) => {
         const response = await fetch(
@@ -43,6 +45,15 @@ export const JobDescriptionScreen = () => {
                 setJob({ data: {}, error: true, loading: false });
             });
     }, [id]);
+
+    const applyNowLink = (link) => {
+        const valid = /<a\s+(?:[^>]*?\s+)?href="([^"]*)"/;
+        return link.match(valid)[1];
+    };
+
+    const cleanURL = (url) => {
+        return (url = url && url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, '').split('/')[0]);
+    };
 
     return (
         <>
@@ -65,16 +76,27 @@ export const JobDescriptionScreen = () => {
                                     <div className='JobDetails__header-description'>
                                         <div className='title-company'>
                                             <h2>{company}</h2>
+                                            {company_url && (
+                                                <small className='url-company'>{cleanURL(company_url)}</small>
+                                            )}
                                         </div>
-                                        <div className='company-site'>
-                                            <button className='btn btn-primary'>Company Site</button>
-                                        </div>
+                                        {company_url && (
+                                            <div className='company-site'>
+                                                <a
+                                                    className='btn btn-primary'
+                                                    href={company_url}
+                                                    target='_blank'
+                                                    rel='noopener noreferrer'
+                                                >
+                                                    Company Site
+                                                </a>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                                 <div className='JobDetails__description'>
                                     <div className='JobDetails__description-header'>
                                         <div className='JobDetails__description-title'>
-                                            {/* <small className='time'>{type + '' + timeDifference(created_at)}</small> */}
                                             <div className='time'>
                                                 <small>{type}</small>
                                                 <small>{timeDifference(created_at)}</small>
@@ -83,7 +105,14 @@ export const JobDescriptionScreen = () => {
                                             <small className='location'>{location}</small>
                                         </div>
                                         <div className='JobDetails__description-apply'>
-                                            <button className='btn btn-primary'>Apply Now</button>
+                                            <a
+                                                className='btn btn-primary'
+                                                href={applyNowLink(how_to_apply)}
+                                                target='_blank'
+                                                rel='noopener noreferrer'
+                                            >
+                                                Apply Now
+                                            </a>
                                         </div>
                                     </div>
                                     <div
@@ -108,7 +137,14 @@ export const JobDescriptionScreen = () => {
                                         <small>{company}</small>
                                     </div>
                                     <div className='footer__content-apply'>
-                                        <button className='btn btn-primary'>Apply Now</button>
+                                        <a
+                                            className='btn btn-primary'
+                                            href={applyNowLink(how_to_apply)}
+                                            target='_blank'
+                                            rel='noopener noreferrer'
+                                        >
+                                            Apply Now
+                                        </a>
                                     </div>
                                 </div>
                             </div>
