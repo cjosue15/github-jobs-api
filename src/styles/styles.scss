@@ -43,6 +43,26 @@ html {
     padding: 0 2em;
 }
 
+.time {
+    color: $gray--dark;
+
+    & small:first-child {
+        margin-right: 30px;
+        position: relative;
+
+        &::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: $gray--dark;
+            border-radius: 50%;
+            position: absolute;
+            right: -17.5px;
+            top: calc(50% - 2.5px);
+        }
+    }
+}
+
 // mixins
 @import './mixin/responsive';
 

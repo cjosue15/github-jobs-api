@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Loader } from '../components/Loader';
 import { Error } from '../components/Error';
+import { timeDifference } from '../helpers/timeDifference';
 
 export const JobDescriptionScreen = () => {
     const { id } = useParams();
@@ -73,7 +74,11 @@ export const JobDescriptionScreen = () => {
                                 <div className='JobDetails__description'>
                                     <div className='JobDetails__description-header'>
                                         <div className='JobDetails__description-title'>
-                                            <small className='time'>{type + '' + created_at}</small>
+                                            {/* <small className='time'>{type + '' + timeDifference(created_at)}</small> */}
+                                            <div className='time'>
+                                                <small>{type}</small>
+                                                <small>{timeDifference(created_at)}</small>
+                                            </div>
                                             <h1>{title}</h1>
                                             <small className='location'>{location}</small>
                                         </div>
